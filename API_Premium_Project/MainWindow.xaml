@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:API_Premium_Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-   
-  
-    <Grid Name="Ecran">
+
+    <Grid x:Name="Ecran">
+        
+    
+    <Grid>
         
         
         <Grid.RowDefinitions>
@@ -73,4 +75,5 @@
 
 
      </Grid>
+   </Grid>
 </Window>

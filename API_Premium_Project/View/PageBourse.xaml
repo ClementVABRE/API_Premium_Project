@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="API_Premium_Project.View.PageBourse"
+<UserControl x:Class="API_Premium_Project.View.PageBourse"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,36 +6,109 @@
              xmlns:local="clr-namespace:API_Premium_Project.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
-    <Grid Background="#FFD7D7D7">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.01*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Border  BorderBrush="Black" BorderThickness="2"/>
+        </Grid>
 
-        <TextBlock Text="Convertisseur de devise" Name="TB_Convertisseur" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" />
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Border  BorderBrush="Black" BorderThickness="2"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="0" >
+            <TextBlock Text="Convertisseur" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="0" >
+            <TextBlock Text="Actualités" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
 
-        <TextBlock Text="Valeur à Convertir" FontSize="30" VerticalAlignment="Center" Height="40" Grid.Row="1" />
+        
 
-        <TextBox x:Name="TB_Valeur" Grid.Column="2" Grid.Row="1" FontSize="30" HorizontalAlignment="Center" Width="294" />
+        <Grid Grid.Column="0" Grid.Row="1" >
 
-        <TextBlock Text="Résultat" Grid.Row="2" FontSize="30" VerticalAlignment="Center" Height="40" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            
+            <!--Grid pour le bouton-->
 
-        <TextBox x:Name="TB_Valeur2" Grid.Column="2" Grid.Row="2" IsEnabled="False" FontSize="30" />
+            <Grid Grid.Row="1">
+                <Button x:Name="Btn_Convertir" Content="Convertir" Click="BTN_Convert_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+            </Grid>
+            
+            <Grid Grid.Column="0" Grid.Row="0" >
+                <Border  BorderBrush="Black" BorderThickness="2"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="2" >
+                <Border  BorderBrush="Black" BorderThickness="2"/>
+            </Grid>
 
-        <Button Content="Convert" Grid.Column="1" Grid.Row="3" Click="BTN_Convert_Click" />
 
-        <TextBlock Text="" Name="TB_Money" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" />
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
 
-        <TextBlock Text="" Name="TB_Money2" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5" />
 
-        <TextBlock Text="Liste 1" FontSize="16" Grid.Row="4" Grid.Column="0" />
-        <ComboBox x:Name="CB_Pays_1" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding LsMoney}" Grid.Column="1" Grid.Row="4" />
+                <!--Grid pour la valeur initial-->
+                <Grid Grid.Column="01">
+                    <StackPanel>
+                        <TextBlock Text="Devise" Name="TB_Money" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+                        <ComboBox x:Name="CB_Pays_1" SelectionChanged="ComboBox_SelectionChanged" Height="20" Width="60" ItemsSource="{Binding LsMoney}" />
+                    </StackPanel>
 
-        <TextBlock Text="Liste 2" FontSize="16" Grid.Row="4" Grid.Column="2" />
-        <ComboBox x:Name="CB_Pays_2" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding LsMoney}" Grid.Column="3" Grid.Row="4" />
+
+                </Grid>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <TextBlock Text="Valeur à Convertir" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" />
+                        <TextBox Text="" x:Name="TB_Valeur"  FontSize="10" Height="20" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+
+
+            <!--Grid pour la valeur final-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock Text="Devise" Name="TB_Money2"  FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+                        <ComboBox x:Name="CB_Pays_2" SelectionChanged="ComboBox_SelectionChanged" Height="20" Width="60" ItemsSource="{Binding LsMoney}"/>
+                    </StackPanel>
+
+                </Grid>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <TextBlock Text="Résultat" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" />
+                        <TextBlock Text="" x:Name="TB_Valeur2" FontSize="10" Height="20" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                    </StackPanel>
+                </Grid>
+
+                
+
+
+            </Grid>
+        </Grid>
+
+
     </Grid>
+
 </UserControl>
+

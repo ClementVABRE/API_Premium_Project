@@ -6,19 +6,59 @@
              xmlns:local="clr-namespace:API_Premium_Project.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Grid>
-            <!-- Ellipse pour représenter le cadran -->
-            <Ellipse Width="200" Height="200" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid Background="white" Name="EcranHorloge" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
 
-            <!-- Aiguille des heures -->
-            <Line x:Name="AiguilleHeures" X1="100" Y1="100" X2="100" Y2="70" Stroke="Black" StrokeThickness="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--Retour-->
+            <Button Grid.Row="3" Height="40" Width="40" Background="White" Name="BTN_Retour" Click="BTN_Retour_Click2" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical">
+                    <Image Height="20" Width="20" Source="/Ressources/Images/Retour.jpg"/>
+                    <Label Content="Retour" FontSize="7" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
 
-            <!-- Aiguille des minutes -->
-            <Line x:Name="AiguilleMinutes" X1="100" Y1="100" X2="100" Y2="40" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Row="0">
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Margin="35">
+                <TextBlock Text="Horloge" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            </Grid>
 
-            <!-- Aiguille des secondes -->
-            <Line x:Name="AiguilleSecondes" X1="100" Y1="100" X2="100" Y2="20" Stroke="Red" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Row="1">
+                <TextBlock Text="ZonePourHorloge" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+          </Grid>
+        
+        <!--Menu du milieu avec la combobox-->
+
+        <Grid Grid.Column="1" >
+            <ComboBox Name="CB_Pays_Horloge" Width="100" Height="20"  HorizontalAlignment="Center" Margin="5,5,5,250" SelectionChanged="CB_Pays_Horloge_SelectionChanged" />
         </Grid>
+        
+        <!--Zone de La météo-->
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Margin="35">
+                    <TextBlock Text="Météo" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+
     </Grid>
 </UserControl>

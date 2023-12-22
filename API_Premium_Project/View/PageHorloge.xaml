@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:API_Premium_Project.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+        <Grid>
+            <!-- Ellipse pour représenter le cadran -->
+            <Ellipse Width="200" Height="200" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <!-- Aiguille des heures -->
+            <Line x:Name="AiguilleHeures" X1="100" Y1="100" X2="100" Y2="70" Stroke="Black" StrokeThickness="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <!-- Aiguille des minutes -->
+            <Line x:Name="AiguilleMinutes" X1="100" Y1="100" X2="100" Y2="40" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <!-- Aiguille des secondes -->
+            <Line x:Name="AiguilleSecondes" X1="100" Y1="100" X2="100" Y2="20" Stroke="Red" StrokeThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </UserControl>
